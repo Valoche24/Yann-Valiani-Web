@@ -132,9 +132,13 @@ td:nth-child(4) {
   display: none
 }
 
+img, video{
+  height: 101vw;
+  max-height: 101vw;
+
+}
+
   }
 
 
 
-
-  
