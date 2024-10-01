@@ -1,0 +1,47 @@
+/* Halftone */
+
+* {
+
+    --pointTrame: 5px;
+
+}
+
+
+.halftone {
+    background: transparent;
+    position: relative;
+    filter: contrast(3000%) grayscale(1);
+    overflow: hidden;
+    transform: translateZ(0);
+    mix-blend-mode: multiply;
+    margin-bottom: 1em;
+}
+
+.halftone img,
+.halftone video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.halftone>* {
+    /*     filter: contrast(75%) brightness(0.55) blur(0.5px); */
+    filter: contrast(75%) brightness(0.55) blur(0.5px) grayscale(1);
+}
+
+.halftone::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    right: -100%;
+    bottom: -100%;
+    background-blend-mode: multiply;
+    background: radial-gradient(var(--pointTrame) var(--pointTrame), white, white), radial-gradient(var(--pointTrame) var(--pointTrame), black, white), radial-gradient(var(--pointTrame) var(--pointTrame), #a4a4a4, white);
+    background-size: var(--pointTrame) var(--pointTrame);
+    background-position: 0 -3px, -2px 0, 2px 0;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    transform: rotate(33deg);
+    z-index: 1;
+}
